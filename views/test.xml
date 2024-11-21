@@ -1,0 +1,47 @@
+<odoo>
+    <!-- Vista de lista (para mostrar los items) -->
+    <record id="view_inventory_item_tree" model="ir.ui.view">
+        <field name="name">inventari.item.tree</field>
+        <field name="model">inventari.item</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="unit_type"/>
+                <field name="quantity"/>
+                <field name="price"/>
+                <field name="value"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista de formulario (para crear/editar items) -->
+    <record id="view_inventory_item_form" model="ir.ui.view">
+        <field name="name">inventari.item.form</field>
+        <field name="model">inventari.item</field>
+        <field name="arch" type="xml">
+            <form string="Item del Inventario">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="unit_type"/>
+                        <field name="quantity"/>
+                        <field name="price"/>
+                        <field name="value" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Acción para mostrar la vista de lista y formulario -->
+    <record id="action_inventory_item" model="ir.actions.act_window">
+        <field name="name">Items de Inventario</field>
+        <field name="res_model">inventari.item</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_inventory_item_tree"/>
+    </record>
+
+    <!-- Menú para acceder a los items de inventario -->
+    <menuitem id="menu_inventory_root" name="Inventario" sequence="10"/>
+    <menuitem id="menu_inventory_item" name="Items" parent="menu_inventory_root" action="action_inventory_item" sequence="1"/>
+</odoo>
