@@ -1,0 +1,4 @@
+# security/ir.model.access.csv
+
+access_gestor_inventari,access.inventari.item,inventari.item,base.group_user,1,1,1,1
+

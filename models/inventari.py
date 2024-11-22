@@ -5,8 +5,8 @@ class Item(models.Model):
     _name = 'inventari.item'
     _description = 'Item del inventari'
 
-    product_id = fields.Char(string="Id Producte", required=True, unique=True)
-    name = fields.Text(string="Nom item", required=True, unique=True)
+    product_id = fields.Integer(string="Id Producte", required=True)
+    name = fields.Text(string="Nom item", required=True)
 
     # Selecciona si la quantitat es mesura com unitats senceres o com, per exemple, kg que seria float
     unit_type = fields.Selection([
