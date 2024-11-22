@@ -42,6 +42,6 @@
     </record>
 
     <!-- Menú para acceder a los items de inventario -->
-    <menuitem id="menu_inventory_root" name="Inventario" sequence="10"/>
+    <menuitem id="menu_inventory_root" name="Inventario" action="ir.actions.act_win" sequence="10"/>
     <menuitem id="menu_inventory_item" name="Items" parent="menu_inventory_root" action="action_inventory_item" sequence="1"/>
 </odoo>

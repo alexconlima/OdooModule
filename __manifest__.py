@@ -9,7 +9,7 @@
     'author': 'Claudia Palacio, Marco Muñoz, Marc Sarrias, Alex Bes',
     'depends': ['base'],
     'data': [
-        #'views/inventory_views.xml',
+        'views/test.xml',
     ],
     'installable': True,
     'application': True,
