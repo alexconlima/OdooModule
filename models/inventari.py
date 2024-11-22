@@ -12,11 +12,14 @@ class Item(models.Model):
     unit_type = fields.Selection([
         ('unitat', 'Unitats'),
         ('decimal', 'Decimals')
-    ], string='Mesura en', required=True, default='unit')
+    ], string='Mesura en', required=True, default='unitat')
 
     quantity = fields.Float(string="Quantitat item", required=True, default=0.0)
-    price = fields.Float(string="Price item", required=True, default=0.0, digits=(16, 2))
-    value = fields.Float(string="Valor item", digits=(999999999, 2), compute='_compute_value', store=True)
+    min_stock = fields.Float(string="Estoc minim", required=True, default=0.0)
+    price = fields.Float(string="Preu item", required=True, default=0.0, digits=(16, 2))
+    value = fields.Float(string="Valor existències", digits=(999999999, 2), compute='_compute_value', store=True)
+
+    low_stock = fields.Boolean(string="Baix d'estoc", compute='_compute_lowstock')
 
     # Té dependencia de quantity i price
     @api.depends('quantity', 'price')
@@ -30,11 +33,18 @@ class Item(models.Model):
         for record in self:
             if record.unit_type == 'unitat':
                 record.quantity = int(record.quantity)
+                record.min_stock = int(record.min_stock)
 
     @api.constrains('quantity', 'price')
     def _check_positive_values(self):
         for record in self:
             if record.quantity < 0:
-                raise ValidationError("La cantidad debe ser un valor positivo.")
+                raise ValidationError("La quantitat ha de ser un valor positiu.")
             if record.price < 0:
-                raise ValidationError("El precio debe ser un valor positivo.")
+                raise ValidationError("El preu ha de ser un valor positiu.")
+
+    @api.depends('quantity', 'min_stock')
+    def _compute_lowstock(self):
+        for record in self:
+            if record.min_stock <= record.quantity:
+                record.low_stock = True

@@ -1,4 +1,3 @@
-# security/ir.model.access.csv
-
-access_gestor_inventari,access.inventari.item,inventari.item,base.group_user,1,1,1,1
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_gestor_inventari,inventari.item,model_inventari_item,base.group_user,1,1,1,1
 

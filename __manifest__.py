@@ -9,8 +9,8 @@
     'author': 'Claudia Palacio, Marco Muñoz, Marc Sarrias, Alex Bes',
     'depends': ['base'],
     'data': [
-        'security/ir.model.access.csv',
         'views/test.xml',
+        'security/ir.model.access.csv',
         ],
 	"application": True,
 	"installable": True,

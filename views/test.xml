@@ -1,6 +1,4 @@
 <odoo>
-	<data>
-		<!-- Vista de lista (para mostrar los items) -->
 		<!-- Vista de lista -->
 		<record id="view_producto_tree" model="ir.ui.view">
             		<field name="name">inventari.item.list</field>
@@ -44,7 +42,6 @@
 
 
     		<!-- Menú para acceder a los items de inventario -->
-    		<menuitem id="menu_inventory_root" name="Inventario" sequence="10"/>
+    		<menuitem id="menu_inventory_root" name="Inventari" sequence="10"/>
 		<menuitem id="menu_items" name="Items" parent="menu_inventory_root" action="action_item"/>
-	</data>
 </odoo>
