@@ -8,7 +8,9 @@
 					<field name="name"/>
 					<field name="product_id"/>
                     			<field name="quantity"/>
-                    			<field name="price"/>
+					<field name="price"/>
+					<field name="value"/>
+					<field name="low_stock"/>
                 		</list>
 			</field>
         	</record>
@@ -26,6 +28,7 @@
                             				<field name="quantity"/>
 							<field name="unit_type"/>
 							<field name="price"/>
+							<field name="min_stock"/>
                         			</group>
                     			</sheet>
                 		</form>

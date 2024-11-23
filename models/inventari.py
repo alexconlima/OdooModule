@@ -15,7 +15,7 @@ class Item(models.Model):
     ], string='Mesura en', required=True, default='unitat')
 
     quantity = fields.Float(string="Quantitat item", required=True, default=0.0)
-    min_stock = fields.Float(string="Estoc minim", required=True, default=0.0)
+    min_stock = fields.Float(string="Estoc de seguretat", required=True, default=0.0)
     price = fields.Float(string="Preu item", required=True, default=0.0, digits=(16, 2))
     value = fields.Float(string="Valor existències", digits=(999999999, 2), compute='_compute_value', store=True)
 
@@ -46,5 +46,7 @@ class Item(models.Model):
     @api.depends('quantity', 'min_stock')
     def _compute_lowstock(self):
         for record in self:
-            if record.min_stock <= record.quantity:
+            if record.quantity >= record.min_stock:
+                record.low_stock = False
+            else:
                 record.low_stock = True
