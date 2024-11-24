@@ -9,7 +9,9 @@
     'author': 'Claudia Palacio, Marco Muñoz, Marc Sarrias, Alex Bes',
     'depends': ['base'],
     'data': [
-        'views/test.xml',
+        'views/item.xml',
+        'views/transaction.xml',
+        'views/menu.xml',
         'security/ir.model.access.csv',
         ],
 	"application": True,

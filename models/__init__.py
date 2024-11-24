@@ -1,1 +1,1 @@
-from . import inventari
+from . import inventari, transactions

@@ -26,7 +26,6 @@
                             				<field name="name"/>
                             				<field name="product_id"/>
                             				<field name="quantity"/>
-							<field name="unit_type"/>
 							<field name="price"/>
 							<field name="min_stock"/>
                         			</group>
@@ -44,7 +43,4 @@
         	</record>
 
 
-    		<!-- Menú para acceder a los items de inventario -->
-    		<menuitem id="menu_inventory_root" name="Inventari" sequence="10"/>
-		<menuitem id="menu_items" name="Items" parent="menu_inventory_root" action="action_item"/>
 </odoo>
