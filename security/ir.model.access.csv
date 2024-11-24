@@ -1,3 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_gestor_inventari,inventari.item,model_inventari_item,base.group_user,1,1,1,1
 access_gestor_transaction,inventari.transaction,model_inventari_transaction,base.group_user,1,1,1,1
+access_gestor_category,inventari.category,model_inventari_category,base.group_user,1,1,1,1

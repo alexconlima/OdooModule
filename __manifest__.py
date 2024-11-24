@@ -11,6 +11,7 @@
     'data': [
         'views/item.xml',
         'views/transaction.xml',
+        'views/category.xml',
         'views/menu.xml',
         'security/ir.model.access.csv',
         ],

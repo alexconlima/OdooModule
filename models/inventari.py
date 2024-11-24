@@ -5,15 +5,17 @@ class Item(models.Model):
     _name = 'inventari.item'
     _description = 'Item del inventari'
 
-    product_id = fields.Integer(string="Id Producte", required=True)
-    name = fields.Text(string="Nom item", required=True)
+    product_id = fields.Text(string="Referencia producte", readonly=True)
+    name = fields.Text(string="Nom producte", required=True)
+    category = fields.Many2one('inventari.category', string="Categoria Producte")
 
-    quantity = fields.Float(string="Quantitat item", required=True, default=0.0)
+    quantity = fields.Float(string="Quantitat", required=True, default=0.0)
     min_stock = fields.Float(string="Estoc de seguretat", required=True, default=0.0)
-    price = fields.Float(string="Preu item", required=True, default=0.0, digits=(16, 2))
+    price = fields.Float(string="Preu", required=True, default=0.0, digits=(16, 2))
     value = fields.Float(string="Valor existències", digits=(999999999, 2), compute='_compute_value', store=True)
+    active = fields.Boolean(string="Actiu", required=True, default=True)
 
-    low_stock = fields.Boolean(string="Baix d'estoc", compute='_compute_lowstock')
+    low_stock = fields.Boolean(string="Baix d'estoc", compute='_compute_lowstock', store=True)
     transactions = fields.One2many('inventari.transaction', 'item_id', string="Transaccions")
 
 
@@ -38,3 +40,16 @@ class Item(models.Model):
                 record.low_stock = False
             else:
                 record.low_stock = True
+
+    @api.model
+    def create(self, valors):
+        item = super(Item, self).create(valors)
+        
+        p_id = self.search_count([])
+        category = item.category
+
+        if not category:
+            item.product_id = ("000-"+str(p_id))
+        else:
+            item.product_id = (category.sigla + "-" +str(p_id))
+        return item

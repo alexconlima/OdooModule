@@ -1,1 +1,1 @@
-from . import inventari, transactions
+from . import inventari, transactions, categoria
