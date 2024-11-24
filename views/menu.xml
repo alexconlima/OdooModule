@@ -1,7 +1,9 @@
 <odoo>
-    		<!-- Menú para acceder a los items de inventario -->
-		<menuitem id="menu_items" name="Items" parent="menu_inventory_root" action="action_item"/>
-		<menuitem id="menu_transaction" name="Transaccions" parent="menu_inventory_root" action="action_transaction"/>
 		<menuitem id="menu_inventory_root" name="Inventari" sequence="10"/>
-
+    		<!-- Menú para acceder a los items de inventario -->
+		<menuitem id="menu_items" name="Productes" parent="menu_inventory_root" action="action_item"/>
+		<menuitem id="menu_items2" name="Tots" parent="menu_items" action="action_item"/>
+		<menuitem id="menu_items3" name="Baix estoc" parent="menu_items" action="action_item"/>
+		<menuitem id="menu_transaction" name="Transaccions" parent="menu_inventory_root" action="action_transaction"/>	
+		<menuitem id="menu_category" name="Categories" parent="menu_inventory_root" action="action_category"/>
 </odoo>

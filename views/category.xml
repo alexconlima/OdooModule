@@ -1,0 +1,39 @@
+<odoo>
+		<!-- Vista de lista -->
+		<record id="view_category_tree" model="ir.ui.view">
+            		<field name="name">inventari.category.list</field>
+            		<field name="model">inventari.category</field>
+			<field name="arch" type="xml">
+                		<list>
+					<field name="name"/>
+					<field name="sigla"/>
+                		</list>
+			</field>
+        	</record>
+
+        	<!-- Vista de formulario -->
+        	<record id="view_transaction_form" model="ir.ui.view">
+            		<field name="name">inventari.category.form</field>
+            		<field name="model">inventari.category</field>
+            		<field name="arch" type="xml">
+               			<form>
+                    			<sheet>
+						<group>
+							<field name="name"/>
+							<field name="sigla"/>
+                        			</group>
+                    			</sheet>
+                		</form>
+           		</field>
+        	</record>
+
+
+    		<!-- Acción para mostrar la vista de lista y formulario -->
+		<record id="action_category" model="ir.actions.act_window">
+            		<field name="name">Categories</field>
+            		<field name="res_model">inventari.category</field>
+            		<field name="view_mode">list,form</field>
+        	</record>
+
+
+</odoo>
