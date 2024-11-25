@@ -21,6 +21,17 @@
 						<group>
 							<field name="name"/>
 							<field name="sigla"/>
+							<field name="products" readonly="1" string="Productes">
+                						<list>
+									<field name="name"/>
+									<field name="product_ref"/>
+									<field name="actiu"/>
+                    							<field name="quantity"/>
+									<field name="price"/>
+									<field name="value" sum="Total"/>
+									<field name="low_stock"/>
+								</list>
+							</field>
                         			</group>
                     			</sheet>
                 		</form>

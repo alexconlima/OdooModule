@@ -14,12 +14,17 @@ class Transaction(models.Model):
 
     quantity=fields.Float(string="Quantitat", required=True)
     date=fields.Datetime(string="Data de transaccio", default=fields.Datetime.now, required=True)
+    total=fields.Float(string="Total", compute="_compute_total", store=True)
 
     @api.constrains('quantity')
     def _check_quantity(self):
         for record in self:
             if record.quantity <= 0:
                 raise ValidationError("La quantitat ha de ser un valor positiu.")
+
+    def _compute_total(self):
+        for record in self:
+            record.total = record.quantity*record.item_id.price
 
     @api.model
     def create(self, valors):

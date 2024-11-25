@@ -6,7 +6,7 @@
 			<field name="arch" type="xml">
                 		<list>
 					<field name="name"/>
-					<field name="product_id"/>
+					<field name="product_ref"/>
                     			<field name="quantity"/>
 					<field name="price"/>
 					<field name="value"/>
@@ -28,7 +28,15 @@
 							<field name="quantity"/>
 							<field name="price"/>
 							<field name="min_stock"/>
-							<field name="active"/>
+							<field name="actiu"/>
+							<field name="transactions" readonly="1">
+								<list default_order="date desc">
+									<field name="transaction_type"/>
+									<field name="quantity"/>
+									<field name="date"/>
+									<field name="total"/>
+								</list>
+							</field>
                         			</group>
                     			</sheet>
                 		</form>
@@ -41,27 +49,28 @@
             		<field name="name">Productes</field>
             		<field name="res_model">inventari.item</field>
             		<field name="view_mode">list,form</field>
+			<field name="domain">[]</field>
         	</record>
-			
+
 		<record id="action_item_lowstock" model="ir.actions.act_window">
             		<field name="name">Productes baixos d'estoc</field>
             		<field name="res_model">inventari.item</field>
 			<field name="view_mode">list,form</field>
-			<field name="domain">[('low_stock', '=', True), ('active', '=', True)]</field>
+			<field name="domain">[('low_stock', '=', True), ('actiu', '=', True)]</field>
         	</record>
 
 		<record id="action_item_active" model="ir.actions.act_window">
             		<field name="name">Productes actius</field>
             		<field name="res_model">inventari.item</field>
 			<field name="view_mode">list,form</field>
-			<field name="domain">[('active', '=', True)]</field>
+			<field name="domain">[('actiu', '=', True)]</field>
         	</record>
 		
 		<record id="action_item_inactive" model="ir.actions.act_window">
             		<field name="name">Productes inactius</field>
             		<field name="res_model">inventari.item</field>
 			<field name="view_mode">list,form</field>
-			<field name="domain">[('active', '=', False)]</field>
+			<field name="domain">[('actiu', '=', False)]</field>
         	</record>
 
 </odoo>

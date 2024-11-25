@@ -5,7 +5,6 @@
 		<menuitem id="menu_items" name="Productes" parent="menu_inventory_root" action="action_item" sequence="20"/>
 		<menuitem id="menu_items2" name="Actius" parent="menu_items" action="action_item_active" sequence="10"/>
 		<menuitem id="menu_items3" name="Inactius" parent="menu_items" action="action_item_inactive" sequence="20"/>
-		<menuitem id="menu_items5" name="Baix estoc" parent="menu_items" action="action_item_lowstock" sequence="30"/>
-		<menuitem id="menu_items4" name="Tots" parent="menu_items" action="action_item" sequence="40"/>
+		<menuitem id="menu_items4" name="Baix estoc" parent="menu_items" action="action_item_lowstock" sequence="30"/>
 		<menuitem id="menu_transaction" name="Transaccions" parent="menu_inventory_root" action="action_transaction" sequence="30"/>	
 </odoo>

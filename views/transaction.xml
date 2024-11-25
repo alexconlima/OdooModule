@@ -4,7 +4,7 @@
             		<field name="name">inventari.transaction.list</field>
             		<field name="model">inventari.transaction</field>
 			<field name="arch" type="xml">
-                		<list>
+                		<list default_order="date desc">
 					<field name="item_id"/>
 					<field name="quantity"/>
 					<field name="transaction_type"/>
