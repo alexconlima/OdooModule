@@ -21,7 +21,7 @@ class Transaction(models.Model):
         for record in self:
             if record.quantity <= 0:
                 raise ValidationError("La quantitat ha de ser un valor positiu.")
-
+    @api.depends('quantity')
     def _compute_total(self):
         for record in self:
             record.total = record.quantity*record.item_id.price
